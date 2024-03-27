@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <script async type="module" src="https://unpkg.com/@google/model-viewer"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #model-viewer-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="model-viewer-container">
+    <model-viewer
+        id="model-viewer"
+        src="/img/machin.glb"
+        alt="A 3D model"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        exposure="1"
+        shadow-intensity="1"
+        interaction-prompt="auto"
+        interaction-policy="allow-when-focused"
+        auto-rotate
+        auto-rotate-delay="3000ms"
+        loading="lazy"
+        style="width: 80%; height: 80%;">
+    </model-viewer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modelViewer = document.getElementById('model-viewer');
+
+        // Enter full-screen mode when the document is loaded
+        modelViewer.addEventListener('load', () => {
+            if (!document.fullscreenElement) {
+                modelViewer.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

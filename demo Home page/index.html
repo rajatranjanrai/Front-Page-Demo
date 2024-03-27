@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-Page</title>
+    <link rel="icon" type="image/x-icon" href="/img/logo resonance3D.png">
+    <link rel="stylesheet" href="/style.css">
+    <script async type="module" src="https://unpkg.com/@google/model-viewer"></script>
+
+    <style>
+        /* Add custom CSS styles here */
+        /* Hide the default full-screen button */
+        model-viewer::part(control-button-fullscreen) {
+            display: none;
+        }
+
+        /* Style for custom full-screen button */
+        .about-us-model {
+            position: relative;
+        }
+
+        #fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Section -->
+    <nav>
+        <div class="logo">
+            <a href="#home-section"><img src="/img/Resonance_logo_Red_CROP.png" alt="logo"></a>
+        </div>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home-section">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="request-button"><a href="login.html">Login</a></button>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home-section" class="hero">
+        <img src="/img/rendering-4722548_1920.jpg" alt="background-image" loading="lazy">
+        <div class="hero-content">
+            <!-- Add hero content here -->
+        </div>
+    </section>
+
+    <!-- Additional Content Section -->
+    <section class="additional-content">
+        <h1>Your Gateway to Stunning 3D Experiences</h1>
+        <p>Explore the world of immersive 3D content.</p>
+        <button class="explore-button">Explore More</button>
+    </section>
+
+    <!-- About Us Section -->
+    <!-- About Us Section -->
+<!-- About Us Section -->
+<section id="about-us" class="about-us-section">
+    <div class="about-us-content">
+        <div class="about-us-text">
+            <h2>About Us</h2>
+            <p>We provide the best 3D services. We are a team of professional and passionate 3D modelers who can create stunning and realistic 3D models for any project and purpose.</p>
+        </div>
+        <div class="about-us-model">
+            <model-viewer 
+                id="model-viewer"
+                src="/img/machin.glb" 
+                alt="A 3D model" 
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                auto-rotate
+                camera-controls
+                exposure="1"
+                shadow-intensity="1"
+                interaction-prompt="auto"
+                interaction-policy="allow-when-focused"
+                auto-rotate-delay="3000ms"
+                loading="lazy"
+                style="width: 100%; height: 100vh;">
+            </model-viewer>
+            <!-- Custom full-screen button -->
+            <button id="fullscreen-button" title="View Full Screen" onclick="toggleFullScreen()">
+                <img src="/img/download.png" alt="Full Screen">
+            </button>
+        </div>
+        
+        <div class="about-us-right">
+            <div class="qr-code">
+                <img src="/img/frame (8).png" alt="QR Code">
+            </div>
+            <div class="text-bar">
+                <p>To view in your space: Scan the QR code with the camera app on your mobile device.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- JavaScript Section -->
+    <script src="script.js"></script>
+    <script>
+        // Function to toggle full-screen mode
+        function toggleFullScreen() {
+            const modelViewer = document.getElementById('model-viewer');
+            if (!document.fullscreenElement) {
+                modelViewer.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>

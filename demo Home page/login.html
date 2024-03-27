@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background-color: #222; 
+        }
+
+        nav button a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .login-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        .login-section h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-section input {
+            width: 50%;
+            padding: 5px;
+            margin: 8px 10px;
+            box-sizing: border-box;
+        }
+
+        .login-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-section p {
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="/index.html"><img src="/img/Resonance_logo_Red_CROP.png" alt="logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/index.html#home-section">Home</a></li>
+            <li><a href="/index.html#about-us">About Us</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="request-button"><a href="register.html">Register</a></button>
+    </nav>
+
+    <section class="login-section">
+        <h2>Login</h2>
+        <p>👤</p>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" id="loginUsername" required>
+            <input type="password" placeholder="Password" id="loginPassword" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

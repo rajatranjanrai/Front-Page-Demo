@@ -1,0 +1,438 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Common styles for both desktop and mobile */
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    overflow-y: auto; /* Add this line */
+    background-color: #222;
+    cursor: pointer;
+}
+
+/* Viewport meta tag for mobile responsiveness */
+meta {
+    name: viewport;
+    content: width=device-width, initial-scale=1.0;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap; /* Add flex-wrap for better mobile responsiveness */
+}
+
+nav img {
+    width: 150px;
+    max-width: 100%; /* Ensure the logo is responsive */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex: 1; /* Allow the navigation links to flex */
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0; /* Remove margin from the last navigation item */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ff5555;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff5555;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.request-button {
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 20px; /* Reduce margin for better mobile spacing */
+    animation: slideInRight 0.8s ease-in-out 0.5s;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.request-button:hover {
+    background-color: #ff5555;
+}
+
+.menu-icon {
+    display: none; /* Hide the menu icon by default */
+}
+
+/* Responsive styles for mobile view */
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: row-reverse; /* Reverse the direction of navigation elements */
+        justify-content: flex-end; /* Align navigation elements to the right */
+        align-items: center; /* Align items vertically */
+        padding: 10px; /* Adjust padding for better mobile spacing */
+    }
+
+    .nav-links {
+        display: none; /* Hide the nav links by default */
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start for better mobile layout */
+        background-color: #333; /* Set background color for the menu */
+        padding: 20px; /* Add padding to menu items */
+        border-radius: 10px; /* Add rounded corners to the menu */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    }
+
+    .menu-icon {
+        display: block; /* Show the menu icon on mobile */
+        margin-left: 20px; /* Adjust margin to separate from the logo */
+        cursor: pointer;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the nav links when menu is active */
+    }
+}
+
+/* Hero section styles */
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    height: 100vh; /* Adjusted height to cover the entire viewport */
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Adjusted to cover the entire section */
+    object-fit: cover; /* Ensures the image covers the entire space */
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1, p {
+    margin-bottom: 20px;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f00;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.explore-button:hover {
+    background-color: #ff5555;
+}
+
+/* Additional content section styles */
+.additional-content {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 110%;
+    z-index: 2;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.additional-content h1 {
+    color: #fff;
+    margin-bottom: 1px;
+}
+
+.additional-content p {
+    color: #fff;
+    margin-bottom: 0px;
+}
+
+/* About us section styles */
+.about-us-section {
+    text-align: center;
+    color: #fff;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 20px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: url('/img/aboutbg.png') no-repeat center center; /* Add background image */
+    background-size: cover; /* Ensure the background image covers the entire section */
+}
+
+.about-us-text {
+    /* flex: 1; */
+    text-align: left;
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #f00;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.about-us-model {
+    width: 400%; /* Adjust the width of the 3D model */
+    max-width: none;
+    margin-right: 20px;
+}
+
+.about-us-right {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.qr-code, .text-bar {
+    background-color: transparent
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.qr-code img {
+    max-width: 80%;
+    height: auto;
+}
+
+.text-bar p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+
+.highlight-text {
+    color: #ffcc00;
+    font-weight: bold;
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    /* flex: 1; */
+}
+
+.about-us-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 20px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-us-model {
+    flex: 1;
+    max-width: 900px; /* Increase the width to make the model larger */
+    margin-right: 20px;
+}
+
+model-viewer {
+    width: 100%; /* Make the model viewer take the full width of its container */
+    height: 600px; /* Adjust the height of the model viewer */
+}
+
+.qr-code {
+    flex: 1;
+    text-align: center;
+}
+
+.qr-code img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Responsive styles for mobile view */
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start for better mobile layout */
+        padding: 10px; /* Adjust padding for better mobile spacing */
+    }
+
+    .nav-links {
+        margin-top: 10px; /* Adjust margin for better mobile spacing */
+        justify-content: flex-start; /* Align items to the start for better mobile layout */
+        animation: none;
+    }
+
+    .nav-links li {
+        margin-bottom: 10px;
+        margin-right: 0; /* Remove margin right for better mobile layout */
+    }
+
+    .request-button {
+        margin-top: 20px;
+        margin-right: 0;
+        animation: none;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .additional-content {
+        top: 90%;
+    }
+
+    .nav-links li {
+        margin-right: 10px;
+    }
+
+    .request-button {
+        margin-right: 10px;
+    }
+
+    .hero img {
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .about-us-content {
+        padding: 20px;
+    }
+
+    .about-us-text {
+        margin: 10px;
+    }
+
+    .qr-code img {
+        max-width: 100%;
+    }
+}
+
+/* Style for custom full-screen button */
+/* CSS Selector for Full-Screen Button */
+.about-us-model #fullscreen-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ff5555; /* Set color to highlight */
+    font-size: 24px; /* Increase font size for better visibility */
+}
+
+.about-us-model #fullscreen-button:hover {
+    color: #ffcc00; /* Change color on hover for better interaction */
+}
+
+/* Style for custom full-screen button */
+.about-us-model model-viewer {
+    position: relative;
+}
+
+.about-us-model model-viewer::part(control-button-ar) {
+    display: inline-block; /* Display the AR button inline */
+}
+
+.about-us-model #fullscreen-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.about-us-model #fullscreen-button img {
+    width: 30px; /* Adjust the size of the full-screen icon */
+    height: auto;
+}
+
+/* Style for custom full-screen button */
+.about-us-model {
+    position: relative;
+}
+
+#fullscreen-button {
+    position: absolute;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 10px;
+    z-index: 9999;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#fullscreen-button img {
+    width: 30px; /* Adjust the size of the full-screen icon */
+    height: auto;
+}
